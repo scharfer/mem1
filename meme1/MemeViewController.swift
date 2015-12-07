@@ -30,6 +30,10 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     
     var memedImage : UIImage?
+    
+    var meme : Meme?
+    
+    var memeLocation : Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,16 +46,32 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         if (!UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
             cameraButton.enabled = false
         }
+        
+        // if edit / details screen
+        if let meme = meme {
+            bottomText.text = meme.bottomText
+            topText.text = meme.topText
+            mainImage.contentMode = UIViewContentMode.ScaleAspectFit
+            mainImage.image = meme.originalImage
+            shareButton.enabled = true
+        }
     }
     
 
     override func viewWillAppear(animated: Bool) {
         subscribeToKeyboardNotifications()
+        if let tabBar = tabBarController?.tabBar {
+            tabBar.hidden = true
+        }
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
+        if let tabBar = tabBarController?.tabBar {
+            tabBar.hidden = false
+        }
     }
     
     @IBAction func showAlbum(sender: AnyObject) {
@@ -146,7 +166,6 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 // user has completed
                 self.shareFinished(activity, success: success, items: items, error: error)
                 
-                print("done")
             }
             
             presentViewController(activityController, animated: false, completion: nil)
@@ -187,6 +206,19 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         let meme = Meme( topText: topText.text!, bottomText: bottomText.text!, originalImage:
             mainImage.image!, memedImage: memedImage!)
+        
+        // Add it to the memes array in the Application Delegate
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        
+        // append or edit to memes
+        if let memeLocation = memeLocation {
+            appDelegate.memes[memeLocation] = meme
+        } else {
+            appDelegate.memes.append(meme)
+        }
+        
+        navigationController?.popViewControllerAnimated(true)
         
     }
     
