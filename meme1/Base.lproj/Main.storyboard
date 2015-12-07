@@ -155,11 +155,11 @@
             </objects>
             <point key="canvasLocation" x="-162" y="-110"/>
         </scene>
-        <!--Collection View-->
+        <!--Navigation Controller-->
         <scene sceneID="yHg-D6-pfa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wrY-Nk-7dP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Collection View" id="wQS-v6-gWl"/>
+                    <tabBarItem key="tabBarItem" title="" image="Collection" id="wQS-v6-gWl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zGK-f5-CNZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -174,11 +174,11 @@
             </objects>
             <point key="canvasLocation" x="1054" y="-128"/>
         </scene>
-        <!--Table View-->
+        <!--Navigation Controller-->
         <scene sceneID="tkt-fA-Inh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kFK-az-7A9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Table View" id="Wcm-Go-uRc"/>
+                    <tabBarItem key="tabBarItem" title="" image="Menu" id="Wcm-Go-uRc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="D93-Js-R9i">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -257,6 +257,10 @@
             <point key="canvasLocation" x="1966" y="-1060"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Collection" width="30" height="30"/>
+        <image name="Menu" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dLv-VH-Ryl"/>
     </inferredMetricsTieBreakers>
