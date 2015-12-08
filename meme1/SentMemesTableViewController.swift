@@ -51,13 +51,12 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let detailController = storyboard!.instantiateViewControllerWithIdentifier("MemeViewController") as! MemeViewController
+        let detailController = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailsViewController") as! MemeDetailsViewController
         
         var memes = (UIApplication.sharedApplication().delegate as! AppDelegate).memes
         let meme : Meme = memes[indexPath.row]
         
         detailController.meme = meme
-        detailController.memeLocation = indexPath.row
         
         //detailController.originalImage
         navigationController!.pushViewController(detailController, animated: true)

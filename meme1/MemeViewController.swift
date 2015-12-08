@@ -59,6 +59,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
 
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
         if let tabBar = tabBarController?.tabBar {
             tabBar.hidden = true
@@ -131,7 +132,8 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
-    func keyboardWillHide(notification: NSNotification) {            view.frame.origin.y = 0
+    func keyboardWillHide(notification: NSNotification) {
+        view.frame.origin.y = 0
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
@@ -180,6 +182,8 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         topText.text = "TOP"
         bottomText.text = "BOTTOM"
         shareButton.enabled = false
+        
+        navigationController?.popViewControllerAnimated(true)
     }
     
     

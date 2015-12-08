@@ -256,6 +256,84 @@
             </objects>
             <point key="canvasLocation" x="1966" y="-1060"/>
         </scene>
+        <!--Meme Details View Controller-->
+        <scene sceneID="162-Ww-TIy">
+            <objects>
+                <viewController storyboardIdentifier="MemeDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JFA-Cm-tdm" customClass="MemeDetailsViewController" customModule="meme1" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PRj-2d-KJg"/>
+                        <viewControllerLayoutGuide type="bottom" id="ugG-q2-DY9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cuV-Dt-VIq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cua-Zg-0zf">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OQj-qo-AIZ">
+                                <rect key="frame" x="20" y="137" width="560" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="irV-Va-DlR">
+                                <rect key="frame" x="20" y="461" width="560" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cua-Zg-0zf" secondAttribute="trailing" id="4Cj-4b-B3Q"/>
+                            <constraint firstAttribute="bottom" secondItem="cua-Zg-0zf" secondAttribute="bottom" id="GSS-hr-ZH1"/>
+                            <constraint firstItem="irV-Va-DlR" firstAttribute="leading" secondItem="cuV-Dt-VIq" secondAttribute="leadingMargin" id="Gqr-Wu-ZyV"/>
+                            <constraint firstItem="ugG-q2-DY9" firstAttribute="top" secondItem="irV-Va-DlR" secondAttribute="bottom" constant="78" id="Ifq-N8-RAd"/>
+                            <constraint firstItem="cua-Zg-0zf" firstAttribute="centerX" secondItem="OQj-qo-AIZ" secondAttribute="centerX" id="Yfq-WM-M1t"/>
+                            <constraint firstItem="irV-Va-DlR" firstAttribute="leading" secondItem="OQj-qo-AIZ" secondAttribute="leading" id="e7s-u0-Gb8"/>
+                            <constraint firstItem="OQj-qo-AIZ" firstAttribute="top" secondItem="PRj-2d-KJg" secondAttribute="bottom" constant="73" id="md4-23-TTa"/>
+                            <constraint firstItem="cua-Zg-0zf" firstAttribute="top" secondItem="cuV-Dt-VIq" secondAttribute="top" id="nwp-hK-VLu"/>
+                            <constraint firstItem="cua-Zg-0zf" firstAttribute="centerX" secondItem="irV-Va-DlR" secondAttribute="centerX" id="vDz-ks-JgH"/>
+                            <constraint firstItem="cua-Zg-0zf" firstAttribute="leading" secondItem="cuV-Dt-VIq" secondAttribute="leading" id="wGK-VV-86s"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="ETy-PT-WpE">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="f6F-cZ-tzX">
+                            <connections>
+                                <action selector="doneView:" destination="JFA-Cm-tdm" id="lLX-Co-sUZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="bottomText" destination="irV-Va-DlR" id="yqO-gb-hIy"/>
+                        <outlet property="mainImage" destination="cua-Zg-0zf" id="vPd-uf-04N"/>
+                        <outlet property="topText" destination="OQj-qo-AIZ" id="cDi-96-fWr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rTo-ky-DfA" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3600" y="653"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Sgp-fw-2I2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MhT-YW-xI4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a2a-qf-sub">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JFA-Cm-tdm" kind="relationship" relationship="rootViewController" id="yjh-tl-Szv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0WM-eI-Hw8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2788" y="653"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Collection" width="30" height="30"/>
